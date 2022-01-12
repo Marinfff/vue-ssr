@@ -5,7 +5,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const autoprefixer = require('autoprefixer');
 
 const base = require('./webpack.base.config');
-const isProduction = process.env.NODE_ENV === 'production';
+//const isProduction = process.env.NODE_ENV === 'production';
+const isProduction = true;
 const srcPath = path.resolve(process.cwd(), 'src');
 
 module.exports = merge(base, {
