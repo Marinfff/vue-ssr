@@ -39,7 +39,7 @@ export default {
 <template>
   <div>
     <h1>Home page</h1>
-    <h2> Test page </h3>
+    <h2> Test page </h2>
     <router-link to="/about/2">Go to About page</router-link>
     <test></test>
     <div v-for="(item, index) in show" :key="index">
