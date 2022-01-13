@@ -5,6 +5,7 @@ const isProduction = process.env.NODE_ENV === 'production';
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HTMLWebpackPlugin = require("html-webpack-plugin");
 const autoprefixer = require("autoprefixer");
+const webpack = require('webpack');
 
 module.exports = {
     mode: process.env.NODE_ENV,
