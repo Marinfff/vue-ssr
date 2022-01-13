@@ -10,19 +10,19 @@ const app = express();
 const createRenderer = (bundle) =>
     vueServerRenderer.createBundleRenderer(bundle, {
         runInNewContext: false,
-        template: fs.readFileSync(path.resolve(__dirname, 'dist/index.html'), 'utf-8')
+        template: fs.readFileSync(path.resolve(__dirname, 'public/index.html'), 'utf-8')
     });
 let renderer;
 
 // you may want to serve static files with nginx or CDN in production
-app.use('/public',  express.static(path.resolve(__dirname, './dist')));
+app.use('/public',  express.static(path.resolve(__dirname, './public')));
 
 if (process.env.NODE_ENV === 'development') {
     setupDevServer(app, (serverBundle) => {
         renderer = createRenderer(serverBundle);
     });
 } else {
-    renderer = createRenderer(require('./dist/vue-ssr-server-bundle.json'));
+    renderer = createRenderer(require('./public/vue-ssr-server-bundle.json'));
 }
 
 app.get("*", async (req, res) => {

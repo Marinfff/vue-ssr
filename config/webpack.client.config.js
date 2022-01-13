@@ -4,6 +4,7 @@ const merge = require('webpack-merge');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const autoprefixer = require('autoprefixer');
 const HTMLWebpackPlugin = require('html-webpack-plugin')
+
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 const base = require('./webpack.base.config');

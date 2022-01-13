@@ -1,3 +1,4 @@
+const clientConfig = require("./webpack.client.config");
 /**
  * Setup webpack-dev-middleware and webpack-hot-middleware.
  * Rebuild SSR bundle on src files change.
