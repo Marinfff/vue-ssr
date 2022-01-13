@@ -17,13 +17,13 @@ let renderer;
 // you may want to serve static files with nginx or CDN in production
 app.use('/public',  express.static(path.resolve(__dirname, './dist')));
 
-// if (process.env.NODE_ENV === 'development') {
-//     setupDevServer(app, (serverBundle) => {
-//         renderer = createRenderer(serverBundle);
-//     });
-// } else {
+if (process.env.NODE_ENV === 'development') {
+    setupDevServer(app, (serverBundle) => {
+        renderer = createRenderer(serverBundle);
+    });
+} else {
     renderer = createRenderer(require('./dist/vue-ssr-server-bundle.json'));
-// }
+}
 
 app.get("*", async (req, res) => {
     const context = {
