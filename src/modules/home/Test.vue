@@ -10,6 +10,7 @@ export default {
 
   methods: {
     async loadData() {
+      console.log('start request')
       try {
         const response = await axios.get('http://jsonplaceholder.typicode.com/posts');
         this.items.push(...response.data.slice(0, 4));
@@ -17,6 +18,7 @@ export default {
       } catch (e) {
         console.log(e);
       }
+      console.log('end request')
     }
   }
 };
