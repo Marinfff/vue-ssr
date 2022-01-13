@@ -12,7 +12,7 @@ export default {
     async loadData() {
       console.log('start request')
       try {
-        const response = await axios.get('http://jsonplaceholder.typicode.com/posts');
+        const response = await axios.get('https://jsonplaceholder.typicode.com/posts');
         this.items.push(...response.data.slice(0, 4));
         console.log(this.items)
       } catch (e) {
