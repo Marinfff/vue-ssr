@@ -34,4 +34,4 @@ jobs:
           USER: ${{ secrets.user }}
           HOST: ${{ secrets.host }}
           DIST: ${{ secrets.dist }}
-        run: ssh -i $HOME/.ssh/key -o StrictHostKeyChecking=no $USER@$HOST "cd $DIST && npm i && supervisorctl restart vue-ssr"
+        run: ssh -i $HOME/.ssh/key -o StrictHostKeyChecking=no $USER@$HOST "cd $DIST && npm install --prefix $DIST && supervisorctl restart vue-ssr"
