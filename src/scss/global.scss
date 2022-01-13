@@ -1,0 +1,25 @@
+.container {
+  background: aliceblue ;
+}
+
+.card {
+  box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+  padding: 20px;
+  background-color: #fff;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.full-width {
+  width: 100%;
+}

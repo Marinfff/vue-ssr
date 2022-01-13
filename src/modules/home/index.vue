@@ -37,24 +37,21 @@ export default {
 </script>
 
 <template>
-  <div class="card">
-    <h1>Home page</h1>
-    <h2> Test page </h2>
-    <router-link to="/about/2">Go to About page</router-link>
-    <test></test>
-    <div v-for="(item, index) in show" :key="index">
-      {{ item.title }}
-      <br>
-      <br>
+  <div class="d-flex justify-center align-center container">
+    <div class="card full-width" style="max-width: 1200px;">
+      <h1>Home page</h1>
+      <h2> Test page </h2>
+      <router-link to="/about/2">Go to About page</router-link>
+      <test></test>
+      <div v-for="(item, index) in show" :key="index">
+        {{ item.title }}
+        <br>
+        <br>
+      </div>
     </div>
+
   </div>
 </template>
 
-<style scoped lang="scss">
-.card {
-  color: red;
-  &__title {
-    background: green;
-  }
-}
+<style scoped>
 </style>
