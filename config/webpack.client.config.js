@@ -17,7 +17,7 @@ module.exports = merge(base, {
         app: path.join(srcPath, 'client-entry.js')
     },
     output: {
-        path: path.resolve(process.cwd(), 'public'),
+        path: path.resolve(process.cwd(), 'dist'),
         publicPath: '/public',
         filename: isProduction ? '[name].[hash].js' : '[name].js',
         sourceMapFilename: isProduction ? '[name].[hash].js.map' : '[name].js.map',
