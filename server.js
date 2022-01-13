@@ -10,7 +10,7 @@ const app = express();
 const createRenderer = (bundle) =>
     vueServerRenderer.createBundleRenderer(bundle, {
         runInNewContext: false,
-        template: fs.readFileSync(path.resolve(__dirname, 'index.html'), 'utf-8')
+        template: fs.readFileSync(path.resolve(__dirname, 'dist/index.html'), 'utf-8')
     });
 let renderer;
 

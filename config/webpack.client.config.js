@@ -3,6 +3,8 @@ const webpack = require('webpack');
 const merge = require('webpack-merge');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const autoprefixer = require('autoprefixer');
+const HTMLWebpackPlugin = require('html-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 const base = require('./webpack.base.config');
 const isProduction = process.env.NODE_ENV === 'production';
@@ -52,6 +54,10 @@ module.exports = merge(base, {
         [
             new MiniCssExtractPlugin({
                 filename: '[name].[contenthash].css',
+            }),
+            new CleanWebpackPlugin(),
+            new HTMLWebpackPlugin({
+                template: path.resolve(__dirname, '../index.html')
             }),
         ] : [
             new MiniCssExtractPlugin({

@@ -5,10 +5,12 @@
     "dev": "cross-env NODE_ENV=development nodemon ./server.js",
     "prod": "cross-env NODE_ENV=production node ./server.js",
     "build:client": "cross-env NODE_ENV=production webpack --config ./config/webpack.client.config.js",
-    "build:server": "cross-env NODE_ENV=production webpack --config ./config/webpack.server.config.js"
+    "build:server": "cross-env NODE_ENV=production webpack --config ./config/webpack.server.config.js",
+    "build": "npm run build:client && npm run build:server"
   },
   "dependencies": {
     "axios": "^0.21.1",
+    "clean-webpack-plugin": "^4.0.0",
     "vue": "^2.6.10",
     "vue-meta": "^2.2.2",
     "vue-router": "^3.1.2",
