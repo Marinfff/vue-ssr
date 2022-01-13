@@ -1,0 +1,38 @@
+on:
+  push:
+    branches:
+      - master
+      
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+
+name: Deploy CCI dev
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v2.1.5
+      - run: npm i
+      - run: npm run build
+
+      - name: Set up key
+        run: |
+          set -eu
+          mkdir "$HOME/.ssh"
+          echo "${{ secrets.key }}" > "$HOME/.ssh/key"
+          chmod 600 "$HOME/.ssh/key"
+      - name: Sync files
+        shell: bash
+        env:
+          USER: ${{ secrets.user }}
+          HOST: ${{ secrets.host }}
+          DIST: ${{ secrets.dist }}
+        run: rsync -e "ssh -i $HOME/.ssh/key -o StrictHostKeyChecking=no" -avzO --no-perms --delete dist/* $USER@$HOST:$DIST
+      - name: Setup api
+        run: ssh -i $HOME/.ssh/key -o StrictHostKeyChecking=no $USER@$HOST "cd $DIST && npm i && supervisorctl restart vue-ssr"
