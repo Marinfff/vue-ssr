@@ -3,6 +3,7 @@ const path = require('path');
 const fs = require('fs');
 const vueServerRenderer = require('vue-server-renderer');
 const setupDevServer = require('./config/setup-dev-server');
+const isProduction = process.env.NODE_ENV === 'production';
 
 const port = 3000;
 const app = express();
@@ -10,12 +11,12 @@ const app = express();
 const createRenderer = (bundle) =>
     vueServerRenderer.createBundleRenderer(bundle, {
         runInNewContext: false,
-        template: fs.readFileSync(path.resolve(__dirname, 'public/index.html'), 'utf-8')
+        template: isProduction ? fs.readFileSync(path.resolve(__dirname, 'public/index.html'), 'utf-8') : fs.readFileSync(path.resolve(__dirname, 'index.html'), 'utf-8')
     });
 let renderer;
 
 // you may want to serve static files with nginx or CDN in production
-app.use('/public',  express.static(path.resolve(__dirname, './public')));
+app.use('/public', express.static(path.resolve(__dirname, './public')));
 
 if (process.env.NODE_ENV === 'development') {
     setupDevServer(app, (serverBundle) => {
