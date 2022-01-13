@@ -30,6 +30,6 @@ module.exports = merge(base, {
     // into a single JSON file. The default file name will be
     // `vue-ssr-server-bundle.json`
     plugins: [
-        new VueSSRServerPlugin(),
+        new VueSSRServerPlugin()
     ]
 });

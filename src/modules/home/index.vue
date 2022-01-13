@@ -37,7 +37,7 @@ export default {
 </script>
 
 <template>
-  <div>
+  <div class="card">
     <h1>Home page</h1>
     <h2> Test page </h2>
     <router-link to="/about/2">Go to About page</router-link>
@@ -49,3 +49,12 @@ export default {
     </div>
   </div>
 </template>
+
+<style scoped lang="scss">
+.card {
+  color: red;
+  &__title {
+    background: green;
+  }
+}
+</style>
