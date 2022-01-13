@@ -15,7 +15,7 @@ const createRenderer = (bundle) =>
 let renderer;
 
 // you may want to serve static files with nginx or CDN in production
-app.use('/dist',  express.static(path.resolve(__dirname, './dist')));
+app.use('/public',  express.static(path.resolve(__dirname, './dist')));
 
 if (process.env.NODE_ENV === 'development') {
     setupDevServer(app, (serverBundle) => {
