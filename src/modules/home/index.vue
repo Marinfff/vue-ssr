@@ -49,9 +49,5 @@ export default {
         <br>
       </div>
     </div>
-
   </div>
 </template>
-
-<style scoped>
-</style>

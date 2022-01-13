@@ -89,7 +89,6 @@ module.exports = {
                     filename: '[name].css',
                     hmr: true,
                 }),
-                new webpack.HotModuleReplacementPlugin(),
                 new VueLoaderPlugin()
             ]
         )
