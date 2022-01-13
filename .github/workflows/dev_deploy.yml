@@ -30,4 +30,8 @@ jobs:
           DIST: ${{ secrets.dist }}
         run: rsync -e "ssh -i $HOME/.ssh/key -o StrictHostKeyChecking=no" -avzO --no-perms --delete * $USER@$HOST:$DIST
       - name: Setup api
+        env:
+          USER: ${{ secrets.user }}
+          HOST: ${{ secrets.host }}
+          DIST: ${{ secrets.dist }}
         run: ssh -i $HOME/.ssh/key -o StrictHostKeyChecking=no $USER@$HOST "cd $DIST && npm i && supervisorctl restart vue-ssr"
